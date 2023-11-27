@@ -1,46 +1,34 @@
+from tkinter import *                   #importing all functions from the tkinter
+from tkinter import messagebox          #importing message box from tkinter
 
-# import all functions from the tkinter   
-from tkinter import *
+tasks_list = []                              #list is declared for storing all the tasks
+counter = 1                             #global variable is declared for conting the tasks
  
-# import messagebox class from tkinter
-from tkinter import messagebox
- 
-# global list is declare for storing all the task
-tasks_list = []
- 
-# global variable is declare for counting the task
-counter = 1
- 
-# Function for checking input error when
-# empty input is given in task field
-def inputError() :
+
+def inputError() :                     # Function for checking input error when empty input is given in task field
      
     # check for enter task field is empty or not
     if enterTaskField.get() == "" :
          
         # show the error message
         messagebox.showerror("Input Error")
-         
         return 0
      
     return 1
  
-# Function for clearing the contents
-# of task number text field
+# Function for clearing the contents of task number text field
 def clear_taskNumberField() :
      
     # clear the content of task number text field
     taskNumberField.delete(0.0, END)
  
-# Function for clearing the contents
-# of task entry field   
+# Function for clearing the contents of task entry field   
 def clear_taskField() :
  
     # clear the content of task field entry box
     enterTaskField.delete(0, END)
      
-# Function for inserting the contents
-# from the task entry field to the text area 
+# Function for inserting the contents from the task entry field to the text area 
 def insertTask():
  
     global counter
@@ -82,8 +70,7 @@ def delete() :
     # get the task number, which is required to delete
     number = taskNumberField.get(1.0, END)
  
-    # checking for input error when
-    # empty input in task number field
+    # checking for input error when empty input in task number field
     if number == "\n" :
         messagebox.showerror("input error")
         return
@@ -99,7 +86,7 @@ def delete() :
     tasks_list.pop(task_no - 1)
  
     # decremented 
-    counter -= 1
+    counter =counter- 1
      
     # whole content of text area widget is deleted
     TextArea.delete(1.0, END)
